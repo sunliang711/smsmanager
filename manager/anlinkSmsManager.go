@@ -36,7 +36,7 @@ type smsResp struct {
 	Message string `json:"msg"`
 }
 
-type AnlinkSmsManger struct {
+type AnlinkSmsManager struct {
 	APIKey      string
 	APISecret   string
 	TaskCode    string
@@ -52,8 +52,8 @@ type AnlinkSmsManger struct {
 	TemplateVars []string
 }
 
-func NewAnlinkSmsManager(smsURL string, key string, secret string, taskCode string, channelType string, templateVars ...string) *AnlinkSmsManger {
-	man := &AnlinkSmsManger{
+func NewAnlinkSmsManager(smsURL string, key string, secret string, taskCode string, channelType string, templateVars ...string) *AnlinkSmsManager {
+	man := &AnlinkSmsManager{
 		APIKey:           key,
 		APISecret:        secret,
 		TaskCode:         taskCode,
@@ -78,7 +78,7 @@ type RequestBody struct {
 	Params      interface{} `json:"params"`
 }
 
-func (man *AnlinkSmsManger) Send(receiver string, codes ...string) error {
+func (man *AnlinkSmsManager) Send(receiver string, codes ...string) error {
 	logrus.SetLevel(logrus.DebugLevel)
 	if len(man.TemplateVars) != len(codes) {
 		return fmt.Errorf("code number not match template var")

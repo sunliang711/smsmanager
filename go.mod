@@ -1,4 +1,4 @@
-module github.com/sunliang711/smsmanger
+module github.com/sunliang711/smsmanager
 
 go 1.14
 
